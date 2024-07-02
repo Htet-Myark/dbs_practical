@@ -34,6 +34,7 @@ window.addEventListener('DOMContentLoaded', function () {
             },
             body: JSON.stringify(student)
         }).then(function (response) {
+            console.log(response)
             if (response.ok) {
                 alert(`Student with admin no ${adminNumber} enrolled!`);
             } else {

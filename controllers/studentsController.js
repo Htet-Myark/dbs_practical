@@ -22,6 +22,7 @@ module.exports.enrolNewStudent = function (req, res) {
     const dob = req.body.dob;
     const nationality = req.body.nationality;
     const courseCode = req.body.courseCode;
+    console.log(adminNumber, studentName, gender, address, dob, nationality, courseCode)
     
     return studentModel.enrolNewStudent(adminNumber, studentName, gender, address, dob, nationality, courseCode)
         .then(function(result) {
@@ -33,6 +34,7 @@ module.exports.enrolNewStudent = function (req, res) {
                 return res.status(400).json({ error: error.message });
             } 
             console.error(error);
-            return res.status(500).send('unknown error');
+            return res.status(500).json({ error: error.message });
+            // return res.status(500).send('unknown error');
         });
 }
